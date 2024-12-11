@@ -18,7 +18,8 @@ const Hero = () => {
 
   const handleMiniVideoClick = () => {
     setHasClicked(true);
-    setCurrentIndex((prevIndex) => prevIndex + 1);
+
+    setCurrentIndex((prevIndex) => (prevIndex % totalVideos) + 1);
   };
 
   const getVideoSource = (index) => `videos/hero-${index}.mp4`;
@@ -37,7 +38,7 @@ const Hero = () => {
             >
               <video
                 ref={nextVideoRef}
-                src={getVideoSource(currentIndex + 1)}
+                src={getVideoSource(upcomingVideoIndex)}
                 loop
                 muted
                 id="current-video"
@@ -64,7 +65,19 @@ const Hero = () => {
             loop
             muted
             className="absolute left-0 top-0 size-full object-cover object-center"
+            onLoadedData={handleVideoLoad}
           />
+        </div>
+        <h1 className="special-font hero-heading absolute bottom-5 right-5 z-40 text-blue-75">
+          G<b>a</b>ming
+        </h1>
+
+        <div className="absolute left-0 top-0 z-40 size-full">
+          <div className="m-24 px-5 sm:px-10">
+            <h1 className="special-font hero-heading text-blue-100">
+              redifi<b>n</b>e
+            </h1>
+          </div>
         </div>
       </div>
     </div>
