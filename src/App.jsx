@@ -1,5 +1,4 @@
-import Hero from "./components/Hero";
-import { About, Navbar } from "./components";
+import { Hero, About, Navbar, Features } from "./components";
 
 const App = () => {
   return (
@@ -7,6 +6,7 @@ const App = () => {
       <Navbar />
       <Hero />
       <About />
+      <Features />
     </main>
   );
 };
